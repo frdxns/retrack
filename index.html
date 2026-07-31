@@ -10,66 +10,77 @@
 <body>
     <div class="container">
         <header>
-            <h1 class="logo">retrack</h1>
+            <h1 class="logo"><a href="https://frdxns.github.io/retrack">retrack</a></h1>
             <nav>
                 <ul>
-                    <li><a href="">dados</a></li>
-                    <li><a href="">graficos</a></li>
-                    <li><a href="">configurações</a></li>
+                    <li><a href="" class="botao-nav">Dados</a></li>
+                    <li><a href="" class="botao-nav">Graficos</a></li>
+                    <li><a href="" class="botao-nav">Confugurações</a></li>
                 </ul>
             </nav>
         </header>
         <main>
-            <section class="diario">
-                <div class="card cordodia linha1">
-                <h4>Cor do Dia</h4>
-                <div class="cor"></div>
+            <section id="diario">
+
+                <div id="cordodia">
+                    <h4>cor do dia</h4>
+                    <div id="cor">o</div>
                 </div>
-                <div class="card recomendacao linha">
+
+                <div id="streak">
+                    <p><span id="stk-dias">8</span> DIAS</p>
+                </div>
+
+                <div id="recomendacao">
                     <h3>Recomendação do Dia</h3>
-
-                    <div class="imgmot">
-                        <img src="https://upload.wikimedia.org/wikipedia/pt/3/33/Twice_-_Eyes_Wide_Open.jpg" alt="capa album recomendacao diaria">
-                        <p>Eyes Wide Open</p>
-                        <p>3 album de estudio do twice e um dos mais queridos pelos  fãs</p>
+                    <div class="rec-info">
+                        <h4 class="rec-nome">Menino do Rio</h4>
+                        <img src="imagens/Menino-do-Rio.webp" alt="">
+                        <p class="rec-descricao">Composta por Caetano Veloso e interpretada por Baby do Brasil tem uma atmosfera eloquente</p>
                     </div>
+                </div>
 
-                </div>
-                <div class="card streak linha1">
-                    <p><span> 8 </span>DIAS</p>
-                </div>
             </section>
 
-            <section class="top linha">
-                <h3>Top Recentes</h3>
-                <div class="card tops artistas">
-                    <h4>TOP ARTISTAS</h4>
-                    <ul id="listaartistas">
-                        <li class="top1">olivia rodrigo</li>
-                        <li class="top2">twice</li>
-                        <li class="top3">pink floyd</li>
-                    </ul>
+            <section id="top">
+                <div class="tops">
+                    <h4>Top Artistas</h4>
+                    <div class="rank">
+                        <ol>
+                            <li>TWICE</li>
+                            <li>PinkFloyd</li>
+                            <li>Angela Ro Ro</li>
+                        </ol>
                     </div>
-                    <div class="card tops albuns">
-                        <h4>TOP ALBUNS</h4>
-                        <ul class="listaalbuns">
-                            <li class="top1">wish you were here</li>
-                            <li class="top2">SOS</li>
-                            <li class="top3">Eyes wide open</li>
-                        </ul>
+                </div>
+
+                <div class="tops">
+                    <h4>Top Albuns</h4>
+                    <div class="rank">
+                        <ol>
+                            <li>Simples Carinho</li>
+                            <li>Wish You Were Here</li>
+                            <li>Eyes Wide Open</li>
+                        </ol>
                     </div>
-                    <div class="card tops musicas">
-                        <h4>TOP MUSICAS</h4>
-                        <ul class="listamusicas">
-                            <li class="top1">what is love?</li>
-                            <li class="top2">echoes</li>
-                            <li class="top3">baby</li>
-                        </ul>
+                </div>
+
+                <div class="tops">
+                    <h4>Top Musicas</h4>
+                    <div class="rank">
+                        <ol>
+                            <li>Brasil Pandeiro</li>
+                            <li>What is Love?</li>
+                            <li>Mares da Espanha</li>
+                        </ol>
                     </div>
+                </div>
+
+
             </section>
         </main>
         <footer>
-            <p class="logo">retrack</p>
+            <h1 class="logo">retrack</h1>
         </footer>
     </div>
         

@@ -6,59 +6,159 @@
         margin: 0 auto;
     }
 
-    .imgmot{
-        justify-content: space-between;
+    section{
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    #diario{
+        grid-template-columns:  1fr 1fr;
+        grid-template-rows: 1fr 3fr;
+        padding: 0px 10px;
+        gap: 5px;
+    }
+
+    #streak{
+        grid-column: 2;
+        justify-self: end;
+        padding-right: 20px;
+    }
+
+    #cordodia{
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+        align-self: center;
+        padding-left: 20px;
+    }
+
+    #recomendacao{
+        grid-area: 2 / 1 / -1 / -1;
+    }
+
+    #recomendacao h3{
+        text-align: center;
+        justify-self: center;
+        padding: 0;
+        margin: auto;
+    }
+
+    .rec-info{
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: auto auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .rec-info img{
+        width: 100%;
+    }
+
+    .rec-descricao{
+        margin-left: 50px;
+        grid-area: 1 / 2 / -1 / -1;
+    }
+
+    #top{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .tops{
+        border-radius: 10px;
+    }
+
+    #top ol{
+        display: flex;
+        flex-direction: column;
     }
 }
 
 
 @media screen and (min-width:1025px) {
+        .container{
+        max-width: 80vw;
+        margin: 0 auto;
+        transition: all 0.5s;
+    }
 
-    .container{
+    header ul{
+        gap: 50px;
+    }
+
+    section{
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    #diario{
+        grid-template-columns:  1fr 1fr;
+        grid-template-rows: 1fr 3fr;
+        padding: 0px 10px;
+        gap: 5px;
+    }
+
+    #streak{
+        grid-column: 2;
+        justify-self: end;
+        padding-right: 20px;
+    }
+
+    #cordodia{
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+        align-self: center;
+        padding-left: 20px;
+    }
+
+    #recomendacao{
+        grid-area: 2 / 1 / -1 / -1;
+    }
+
+    #recomendacao h3{
+        text-align: center;
+        justify-self: center;
+        padding: 0;
+        margin: auto;
+    }
+
+    .rec-info{
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: auto auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .rec-info img{
+        width: 100%;
+        justify-self: center;
+    }
+
+    .rec-descricao{
+        margin-left: 50px;
+        grid-area: 1 / 2 / -1 / -1;
+    }
+
+    #top{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 80px 1fr 3fr 80px;
-        grid-template-areas:
-        "header header header"
-        "main main main"
-        "footer footer footer"
-        ;
+        gap: 10px;
     }
 
-    header{
-        grid-area: header;
+    .tops{
+        border-radius: 10px;
     }
 
-    main{
-        grid-area: main;
-        display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-        grid-template-rows: 1fr 2fr;grid-template-areas: 
-        "cor nda str"
-        "recom topo topo" 
-        ;
+    #top ol{
+        display: flex;
+        flex-direction: column;
     }
-
-    .cordodia{
-        grid-area: cor;
-    }
-
-    .streak{
-        grid-area: str
-    }
-
-    .recomendacao{
-        grid-area: recom;
-    }
-
-    .top{
-        grid-area: topo;
-    }
-
-    
-
-    footer{
-        grid-area: footer;
-    }
-
 }

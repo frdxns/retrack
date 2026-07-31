@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root{
-    --principal: #2a262d;
-    --rosa: #b90d52;
-    --escuro: #22171e;
+    --principal:#160510 ;
+    --amarelo: #e8e547;
+    --escuro: #140714;
     --claro:#EFDFCB;
 
     --texto: "Nunito", Verdana, sans-serif;
@@ -17,225 +17,184 @@
     box-sizing: border-box;
 }
 
-html,body{
-    height: 100%;
-    width: 100%;
+html, body{
+    font-size: 16px;
+    font-family: var(--texto);
 }
 
 body{
-    font-family: var(--texto);
     background-color: var(--principal);
-}
-
-.container{
-    padding: 10px;
-    display: block;
+    color: var(--claro);
 }
 
 h1,h2,h3,h4{
-    font-weight: 400;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.275);
 }
 
-p{
-    font-weight: 100;
-}
-
-li{
-    list-style-type:decimal;
-    list-style-position: inside;
-}
-
-nav li{
-    list-style-type: none;
-}
-
-a{
-    text-decoration: none;
-    color: white;
+.container{
+    display: grid;
+    grid-template-columns:auto 1fr auto;
+    grid-template-rows: 50px 1fr 50px;
 }
 
 header{
     display: flex;
     justify-content: space-between;
-    padding: 10px;
     align-items: center;
-}
-
-nav ul{
-    display: flex;
-    flex-flow: row wrap;
-    gap: 10px;
-}
-
-nav a{
-    padding: 5px;
-    border-radius: 15px;
-    font-weight: 600;
-    font-variant: small-caps;
-}
-
-nav a:hover{
-    text-decoration: underline;
-    transition: all 0.2s;
+    margin-top: 20px;
+    padding: 10px;
+    grid-row: 1;
+    grid-column: 2;
 }
 
 .logo{
-    font-family:var(--logo) ;
+    font-family: var(--logo);
+    height: fit-content;
+    user-select: none;
+    cursor: pointer;
+}
+
+.logo a{
+    color: inherit;
+    text-decoration: inherit;
+}
+
+
+nav ul{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+nav ul a{
     color: var(--claro);
-    font-weight: 800;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul a:hover{
+    text-decoration:2px underline var(--amarelo);
+    text-decoration-thickness:2 ;
 }
 
 main{
-    display: block;
-}
-
-section.diario{
     display: grid;
-    grid-area: diario;
-    grid-template: 1fr 3fr / 1fr 2fr 1fr;
-    grid-template-areas: 
-    "cordodia nda streak"
-    "recomendacao recomendacao recomendacao"
-    ;
-    gap: 10px;
+    grid-template-rows: repeat(2fr);
+    grid-column: 2 / 3;
 }
 
-.cordodia{
-    grid-area: cordodia;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    max-width: 100px;
+section#diario{
+    background-color: var(--escuro);
+    margin-top: 20px;
 }
 
-.cor{
-    background-color: pink;
-    height: 100%;
-    max-width: 30px;
-    width: 100%;
-    padding: 20px;
-    border-radius: 50%;
-}
-
-.streak{
-    grid-area: streak;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    transition: 0.3s;
-}
-
-.streak p{
-    font-weight: bolder;
-}
-
-.recomendacao{
-    font-size: 1.2em;
-    grid-area: recomendacao;
-    height: 30vh;
+#diario{
     display: grid;
-    grid-template: 30px 1fr / 1fr 2fr;
-    grid-template-areas: 
-    "tit tit"
-    "imgmot imgmot"
+    grid-template: 1fr 1fr / 3fr 1fr;
+    grid-template-areas:
+    "recom streak"
+    "recom cor"
     ;
     align-items: center;
-    transition: .3s;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.153);
 }
 
-
-.recomendacao h3{
-    text-align: center;
-    grid-area: tit;
-    font-size: 1em;
-    background-color: var(--roxoescuro);
-}
-
-.recomendacao p{
-    font-size: 1rem;
-}
-
-.imgmot{
+#recomendacao{
+    grid-area: recom;
     display: flex;
-    grid-area: imgmot;
-    border: 2px solid rgba(0, 0, 0, 0.13);
-    width: 100%;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    box-sizing: border-box;
-    transition:all .3s;
+    padding: 10px;
+    border-top: 1px solid var(--amarelo);
+    
 }
 
-.imgmot img{
-    width: 150px;
+#recomendacao h3{
+    width: 90%;
+    border-radius: 10px;
 }
 
-.imgmot p{
-    padding: 20px;
-    flex-grow: 0;
-    text-align: center;
-}
-
-section.top{
-    grid-area: tops;
-    display: grid;
-    grid-template: 30px 1fr / repeat(3, 1fr);
-    grid-template-areas: 
-    "tit tit tit"
-    "topo topo topo"
-    ;
-    gap: 10px;
-}
-
-.top h3{
-    grid-area: tit;
-    text-align: center;
-    font-weight: 500;
-    color: white;
-    background-color: var(--roxoescuro);
-    width: 100%;
-}
-
-.top h4{
-    text-align: center;
-    font-weight: 400;
-}
-
-.tops{
-    padding: 50px;
-}
-
-.top.card{
-    grid-area: topo;
-    border: 1px solid;
-}
-
-
-
-.card{
-    border: 1px solid var(--principal);
-    color: white;
+#recomendacao .rec-info{
     padding: 10px;
 }
 
-.card.streak{
-    box-shadow: none;
+
+#recomendacao .rec-info img{
+    width: 100%;
+    max-width: 200px;
+    border-radius: 5px;
 }
 
-.card.tops{
-    max-height: 25vh;
-    line-height: 1.8em;
-    font-weight: 200;
-    border: 1px solid rgba(0, 0, 0, 0.142);
+
+#streak{
+    grid-area: streak;
+    align-self: center;
+    justify-self: center;
+    font-weight: bold;
 }
+
+#cordodia{
+    display: flex;
+    flex-flow: column wrap;
+    grid-area: cor;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+#cor{
+    align-self: center;
+    width: 100%;
+    background-color: pink;
+    border-radius: 50px;
+    color: pink;
+}
+
+
+#top{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 5px;
+}
+
+.tops{
+    box-shadow:0px 0px 3px rgba(7, 7, 7, 0.242);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--escuro);
+}
+
+#top .rank{
+    list-style-position: inside;
+    margin-top: 10px;
+    line-height: 1.8rem;
+    font-weight: 600;
+}
+
+#top ol{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    font-weight: 800;
+    justify-content: space-evenly;
+}
+
+#top ol:nth-child(){
+    background-color: white;
+}
+
 
 footer{
-    grid-area: footer;
+    grid-column: 2;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
+    font-size: 0.5em;
+
 }
+
+
 
