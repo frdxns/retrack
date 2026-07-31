@@ -2,9 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root{
-    --principal: purple;
-    --amarelo: yellow;
-    --fundo: lightblue;
+    --principal: #2a262d;
+    --rosa: #b90d52;
+    --escuro: #22171e;
+    --claro:#EFDFCB;
 
     --texto: "Nunito", Verdana, sans-serif;
     --logo: "Comfortaa" , Arial, sans-serif;
@@ -23,21 +24,28 @@ html,body{
 
 body{
     font-family: var(--texto);
-    background-color: rgb(191, 148, 191);
+    background-color: var(--principal);
 }
 
 .container{
-    display: grid;
-    grid-template: 60px 1fr 100px / 1fr 1fr;
-    grid-template-areas: 
-    "header header"
-    "main main"
-    "footer footer"
-    ;
-    gap: 10px;
+    padding: 10px;
+    display: block;
+}
+
+h1,h2,h3,h4{
+    font-weight: 400;
+}
+
+p{
+    font-weight: 100;
 }
 
 li{
+    list-style-type:decimal;
+    list-style-position: inside;
+}
+
+nav li{
     list-style-type: none;
 }
 
@@ -47,7 +55,6 @@ a{
 }
 
 header{
-    grid-area: header;
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -60,27 +67,32 @@ nav ul{
     gap: 10px;
 }
 
+nav a{
+    padding: 5px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-variant: small-caps;
+}
+
+nav a:hover{
+    text-decoration: underline;
+    transition: all 0.2s;
+}
+
 .logo{
     font-family:var(--logo) ;
-    color: white;
+    color: var(--claro);
+    font-weight: 800;
 }
 
 main{
-    grid-area: main;
-    display: grid;
-    grid-template: 1fr 1.5fr 3fr / 1fr 1fr 1fr;
-    grid-template-areas: 
-    "diario diario diario"
-    "diario diario diario"
-    "tops tops tops";
-    gap: 20px;
-    height: 85vh;
+    display: block;
 }
 
 section.diario{
     display: grid;
     grid-area: diario;
-    grid-template: 1fr 2fr / 1fr 2fr 1fr;
+    grid-template: 1fr 3fr / 1fr 2fr 1fr;
     grid-template-areas: 
     "cordodia nda streak"
     "recomendacao recomendacao recomendacao"
@@ -92,12 +104,18 @@ section.diario{
     grid-area: cordodia;
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 100px;
 }
 
 .cor{
     background-color: pink;
-    height: 50%;
-    width: 50%;
+    height: 100%;
+    max-width: 30px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 50%;
 }
 
 .streak{
@@ -105,38 +123,68 @@ section.diario{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.streak p{
+    font-weight: bolder;
 }
 
 .recomendacao{
+    font-size: 1.2em;
     grid-area: recomendacao;
+    height: 30vh;
     display: grid;
-    grid-template: 1fr 2fr / 1fr 2fr;
+    grid-template: 30px 1fr / 1fr 2fr;
     grid-template-areas: 
     "tit tit"
-    "img mot"
+    "imgmot imgmot"
     ;
+    align-items: center;
+    transition: .3s;
 }
+
 
 .recomendacao h3{
     text-align: center;
     grid-area: tit;
-}
-
-.recomendacao.img{
-    grid-area: img;
+    font-size: 1em;
+    background-color: var(--roxoescuro);
 }
 
 .recomendacao p{
-    grid-area: mot;
+    font-size: 1rem;
+}
+
+.imgmot{
+    display: flex;
+    grid-area: imgmot;
+    border: 2px solid rgba(0, 0, 0, 0.13);
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition:all .3s;
+}
+
+.imgmot img{
+    width: 150px;
+}
+
+.imgmot p{
+    padding: 20px;
+    flex-grow: 0;
+    text-align: center;
 }
 
 section.top{
     grid-area: tops;
     display: grid;
-    grid-template: 30px 2fr / repeat(3, 1fr);
+    grid-template: 30px 1fr / repeat(3, 1fr);
     grid-template-areas: 
     "tit tit tit"
-    "topo topo top"
+    "topo topo topo"
     ;
     gap: 10px;
 }
@@ -144,27 +192,50 @@ section.top{
 .top h3{
     grid-area: tit;
     text-align: center;
+    font-weight: 500;
     color: white;
+    background-color: var(--roxoescuro);
+    width: 100%;
 }
 
-.top.cards{
+.top h4{
+    text-align: center;
+    font-weight: 400;
+}
+
+.tops{
+    padding: 50px;
+}
+
+.top.card{
     grid-area: topo;
+    border: 1px solid;
 }
 
 
 
 .card{
-    background-color: rgb(153, 69, 153);
-    border-radius: 10px;
+    border: 1px solid var(--principal);
     color: white;
     padding: 10px;
 }
 
+.card.streak{
+    box-shadow: none;
+}
+
 .card.tops{
+    max-height: 25vh;
     line-height: 1.8em;
+    font-weight: 200;
+    border: 1px solid rgba(0, 0, 0, 0.142);
 }
 
 footer{
     grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
