@@ -8,13 +8,31 @@ async function carregar() {
   topartistas = tops[0].artistas;
   topmusicas = tops[1].musicas;
   topalbuns = tops[2].albuns;
+  recentes = tops[3].recente;
 
-  campo_artistas = document.querySelector("#rankartistas");
-  campo_musicas = document.querySelector("#rankmusicas");
-  campo_albuns = document.querySelector("#rankalbuns");
+  if (recentes.tocando == true) {
+    console.log(`está tocando = ${recentes.titulo} - ${recentes.artista}`);
+  } else {
+    console.log(`ultima reproduzida ${recentes.titulo}`);
+  }
+
+  console.log(recentes);
+
+  const campo_artistas = document.querySelector("#rankartistas");
+  const campo_musicas = document.querySelector("#rankmusicas");
+  const campo_albuns = document.querySelector("#rankalbuns");
   const imagem_destaque = document.querySelector("#imagemmusica");
+  const nome_destaque = document.querySelector(".rec-nome");
+  const recente = document.querySelector("#stk-dias");
 
   imagem_destaque.src = topmusicas[1].imagem;
+  nome_destaque.innerText = topmusicas[0].titulo;
+
+  if (recentes.tocando == true) {
+    recente.innerText = `Tocando Agora: ${recentes.titulo} - ${recentes.artista}`;
+  } else {
+    recente.innerText = `Última Reprodução: ${recentes.titulo} - ${recentes.artista}`;
+  }
 
   topartistas.forEach(artista => {
     const lista = document.createElement("li");

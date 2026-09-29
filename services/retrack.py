@@ -48,8 +48,9 @@ def pegar_top_musicas(usuario):
     dados = response.json()
     
     musicas = dados["toptracks"]["track"]
+
+    imagens = pegar_imagens(usuario)
     
-    imagens = dados["toptracks"]["track"][0]["image"]
     
     dadosformatados = [{
         "id" : musica["mbid"],
@@ -86,14 +87,13 @@ def pegar_top_albuns(usuario):
     albuns_dados = dadosformatados
     return albuns_dados
 
-
 def pegar_tops_lastfm(usuario):
 
     artistas = pegar_top_artistas(usuario)
     musicas = pegar_top_musicas(usuario)
     albuns = pegar_top_albuns(usuario)
 
-    dadoscru = [{"artistas": artistas}, {"musicas": musicas}, {"albuns": albuns}]
+    dadoscru = [{"artistas": artistas}, {"musicas": musicas}, {"albuns": albuns}, {"recente": recente(usuario)}]
 
     dados = json.dumps(dadoscru)
     return dados
@@ -110,21 +110,49 @@ def recente(usuario):
     
     response = requests.get(URL, params= params)
         
+    dado = response.json()
+
+    pprint.pprint(dado)
+
+    if "@attr" in dado["recenttracks"]["track"][0]:
+        musica_recente = {"tocando": True, "titulo": dado["recenttracks"]["track"][0]["name"], "artista": dado["recenttracks"]["track"][0]["artist"]["#text"]}
+    else:
+        musica_recente = {"tocando": False, "titulo": dado["recenttracks"]["track"][0]["name"], "artista": dado["recenttracks"]["track"][0]["artist"]["#text"]}
+
+    return musica_recente
+
+def pegar_id(usuario):
+    params = {
+        "method": "user.gettoptracks",
+        "period": "7day",
+        "user": usuario,
+        "api_key": API_KEY,
+        "format": "json",
+        "limit" : 3
+    }
+
+    response = requests.get(URL, params= params)
+
     dados = response.json()
+    
+    musica = dados["toptracks"]["track"]
+    
+    id = musica[0]["mbid"],
 
-    return dados
+    return id
 
+def pegar_imagens(usuario):
+    id = pegar_id(usuario)
 
-
-def imagens():
     params = {
         "method": "track.getinfo",
-        "mbid": '455aacf0-d22a-4c9f-bbc2-27d431613b20',
+        "mbid": id,
         "api_key": API_KEY,
         "format": "json"
     }
 
     response = requests.get(URL, params=params)
     dados = response.json()
+    imagem = dados["track"]["album"]["image"]
 
-    return dados
+    return imagem
