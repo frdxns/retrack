@@ -35,8 +35,56 @@ h4 {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.275);
 }
 
+#carregando {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#carregando p {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  /* 1. Cor base do texto (transparente para o gradiente aparecer) */
+  color: rgba(255, 255, 255, 0.2);
+
+  /* 2. Cria o gradiente com o "rastro" no meio */
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    var(--amarelo) 50%,
+    /* Cor do rastro (mude para a cor que quiser!) */ rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  /* 3. Faz o gradiente ficar com o tamanho maior que o texto para podermos movê-lo */
+  background-size: 200% auto;
+
+  /* 4. Recorta o fundo para aparecer apenas dentro das letras */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* 5. Aplica a animação */
+  animation: rastro-cor 2s linear infinite;
+}
+
+/* Código da animação que move o gradiente da direita para a esquerda */
+@keyframes rastro-cor {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
 .container {
-  display: grid;
+  display: none;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 50px 1fr 50px;
 }
@@ -181,6 +229,10 @@ section#diario {
 
 #top ol:nth-child() {
   background-color: white;
+}
+
+.infos .plays {
+  text-align: right;
 }
 
 footer {

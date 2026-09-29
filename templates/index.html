@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RETRACK</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename = 'style/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename = 'style/queries.css') }}"
+    />
+  </head>
+  <body>
+    <div id="carregando"><p class="logo">retracking</p></div>
+    <div class="container">
+      <header>
+        <h1 class="logo">
+          <a href="https://frdxns.github.io/retrack">retrack</a>
+        </h1>
+        <nav>
+          <ul>
+            <li><a href="" class="botao-nav">Dados</a></li>
+            <li><a href="" class="botao-nav">Graficos</a></li>
+            <li><a href="" class="botao-nav">Confugurações</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section id="diario">
+          <div id="cordodia">
+            <h4>cor do dia</h4>
+            <div id="cor">o</div>
+          </div>
+
+          <div id="streak">
+            <p><span id="stk-dias"></span> DIAS</p>
+          </div>
+
+          <div id="recomendacao">
+            <h3>Recomendação do Dia</h3>
+            <div class="rec-info">
+              <h4 class="rec-nome">Venus as a Boy</h4>
+              <img
+                src="{{ url_for('static', filename = 'imagens/Menino-do-Rio.webp') }}"
+                alt=""
+                id="imagemmusica"
+              />
+              <p class="rec-descricao">
+                Trilha sonora perfeita para relaxar, sentir a vibe do mar e
+                viajar no tempo com um dos maiores clássicos da MPB
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="top">
+          <div class="tops">
+            <h4>Top Artistas</h4>
+            <div class="rank">
+              <ol id="rankartistas"></ol>
+            </div>
+          </div>
+
+          <div class="tops">
+            <h4>Top Albuns</h4>
+            <div class="rank">
+              <ol id="rankalbuns"></ol>
+            </div>
+          </div>
+
+          <div class="tops">
+            <h4>Top Musicas</h4>
+            <div class="rank">
+              <ol id="rankmusicas"></ol>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <h1 class="logo">retrack</h1>
+      </footer>
+    </div>
+    <script src="{{ url_for('static', filename = 'script/script.js') }}"></script>
+  </body>
+</html>
