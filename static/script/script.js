@@ -10,14 +10,6 @@ async function carregar() {
   topalbuns = tops[2].albuns;
   recentes = tops[3].recente;
 
-  if (recentes.tocando == true) {
-    console.log(`está tocando = ${recentes.titulo} - ${recentes.artista}`);
-  } else {
-    console.log(`ultima reproduzida ${recentes.titulo}`);
-  }
-
-  console.log(recentes);
-
   const campo_artistas = document.querySelector("#rankartistas");
   const campo_musicas = document.querySelector("#rankmusicas");
   const campo_albuns = document.querySelector("#rankalbuns");

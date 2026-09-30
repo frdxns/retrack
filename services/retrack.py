@@ -112,8 +112,6 @@ def recente(usuario):
         
     dado = response.json()
 
-    pprint.pprint(dado)
-
     if "@attr" in dado["recenttracks"]["track"][0]:
         musica_recente = {"tocando": True, "titulo": dado["recenttracks"]["track"][0]["name"], "artista": dado["recenttracks"]["track"][0]["artist"]["#text"]}
     else:
