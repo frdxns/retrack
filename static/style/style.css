@@ -85,6 +85,8 @@ h4 {
 
 .container {
   display: none;
+  height: 100%;
+  width: 100%;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 50px 1fr 50px;
 }
